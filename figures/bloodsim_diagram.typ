@@ -1,57 +1,55 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+#import fletcher.shapes: diamond
 #set page(width: auto, height: auto, margin: 5mm, fill: white)
+#set text(font: "Inter")
 
 #diagram(
-  debug: true,
+  debug: false,
   node-stroke: black,
   node-corner-radius: 5pt,
 
-  node((0, 0), [Conducting\ a Covasim Simulation], name: <aa>),
-  node((0, 1), [Initializing\ BloodSim agents], name: <ab>),
-  node((0, 2), [Selecting\ a Testing Strategy], name: <ac>),
-  node((0, 3), [Aggregation\ of laboratory tests], name: <ad>),
+  node((1, 0), [Run\ Covasim simulation], name: <sim>),
+  node((1, 1), [Initialize\ BloodSim agents], name: <agents>),
+  node((1, 2), [More\ agents?], name: <loop>, shape: diamond),
+  node((1, 3), [Select\ testing strategy], name: <strategy>),
+  node((1, 4), [Aggregate\ lab tests], name: <labs>),
 
-  node((1, 1), [Initialization], name: <bb>),
-  node((1, 3), [Conducting\ Statistical tests], name: <bd>),
-
-  node((2, 0), [Determining\ the presence of\ a comorbid condition], name: <ca>),
-  node((2, 1), [Determination of\ the baseline CRP level], name: <cb>),
-  node((2, 2), [Determining when\ infectious state change], name: <cc>),
-  node((2, 3), [Metrics Computation], name: <cd>),
-
-  node((3, 1), [Modeling\ CRP Dynamics], name: <db>),
-  node((3, 3), [Visualization], name: <dd>),
-
+  node((2, 2), [Run\ detectors], name: <stats>),
+  node((2, 3), [Compute\ metrics], name: <metrics>),
+  node((2, 4), [Visualize\ results], name: <viz>),
   
+  node((0, 1), [Assign\ comorbidity], name: <comorb>),
+  node((0, 2), [Set baseline\ CRP], name: <baseline>),
+  node((0, 3), [Detect infection-\ state transitions], name: <infection>),
+  node((0, 4), [Model\ CRP dynamics], name: <crp>),
+
+  node((0.5, 2), name: <from_loop1>, stroke: none),
+  node((0.5, 1), name: <from_loop2>, stroke: none),
+  node((0.5, 4), name: <to_loop1>, stroke: none),
+  node((0.5, 2.5), name: <to_loop2>, stroke: none),
+  node((1.5, 4), name: <to_stats1>, stroke: none),
+  node((1.5, 2), name: <to_stats2>, stroke: none),
 
 
-  edge(<aa>, <ab>, "-|>"),
-  edge(<ab>, <ac>, "-|>"),
-  edge(<ac>, <ad>, "-|>"),
-  edge(<ad>, <bd>, "-|>"),
-  edge(<bd>, <cd>, "-|>"),
-  edge(<cd>, <dd>, "-|>"),
-  edge(<ab>, <bb>, [For Every agent], "-|>", bend: 40deg),
-  edge(<bb>, <ab>, "-|>", bend: 40deg),
+  edge(<sim>, <agents>, "-|>"),
+  edge(<agents>, <loop>, "-|>"),
+  edge(<strategy>, <labs>, "-|>"),
+  edge(<stats>, <metrics>, "-|>"),
+  edge(<metrics>, <viz>, "-|>"),
+  edge(<comorb>, <baseline>, "-|>"),
+  edge(<baseline>, <infection>, "-|>"),
+  edge(<infection>, <crp>, "-|>"),
 
-  node((1.35, 1), [], name: <splitL>, stroke: none),
-  node((1.35, 0), [], name: <splitLU>, stroke: none),
-  node((1.35, 2), [], name: <splitLD>, stroke: none),
-  node((2.6, 1), [], name: <splitR>, stroke: none),
-  node((2.6, 0), [], name: <splitRU>, stroke: none),
-  node((2.6, 2), [], name: <splitRD>, stroke: none),
+  edge(<loop>, <strategy>, [no], "-|>"),
+  edge(<loop>, <from_loop1>, [yes], "-"),
+  edge(<from_loop1>, <from_loop2>, "-"),
+  edge(<from_loop2>, <comorb>, "-|>"),
 
-  edge(<bb>, <splitL>, "-"),
-  edge(<splitL>, <splitLU>, "-"),
-  edge(<splitL>, <splitLD>, "-"),
-  edge(<splitLU>, <ca>, "-|>"),
-  edge(<splitL>, <cb>, "-|>"),
-  edge(<splitLD>, <cc>, "-|>"),
+  edge(<crp>, <to_loop1>, "-"),
+  edge(<to_loop1>, <to_loop2>, "-"),
+  edge(<to_loop2>, <loop>, "-|>"),
 
-  edge(<ca>, <splitRU>, "-"),
-  edge(<cb>, <splitR>, "-"),
-  edge(<cc>, <splitRD>, "-"),
-  edge(<splitRU>, <splitR>, "-"),
-  edge(<splitRD>, <splitR>, "-"),
-  edge(<splitR>, <db>, "-|>"),
+  edge(<labs>, <to_stats1>, "-"),
+  edge(<to_stats1>, <to_stats2>, "-"),
+  edge(<to_stats2>, <stats>, "-|>"),
 )
