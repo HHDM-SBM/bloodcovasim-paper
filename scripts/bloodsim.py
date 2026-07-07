@@ -4,24 +4,9 @@ import glob
 import os
 import random
 import covasim as cv
-# from profilehooks import profile
-import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
-from scipy.interpolate import interp1d
 from scipy.ndimage.filters import gaussian_filter1d
-import cProfile
 
 
-def profile(func):
-    ''' Decorator for run function profile '''
-
-    def wrapper(*args, **kwargs):
-        profile_filename = func.__name__ + '.prof'
-        profiler = cProfile.Profile()
-        result = profiler.runcall(func, *args, **kwargs)
-        profiler.dump_stats(profile_filename)
-        return result
-    return wrapper
 
 class Person:
     ''' The Person class handles the individual dynamics of CRP concentration in the blood plasma of a specific person based on the progression of their disease as recorded in Covasim. '''
@@ -53,7 +38,7 @@ class Person:
 
         self.personal_dynamic = {}
         for blood_parameter in self.blood_parameters.keys():
-            self.normal_values[blood_parameter] = int(self.get_normal_value(blood_parameter))
+            self.normal_values[blood_parameter] = self.get_normal_value(blood_parameter)
             self.personal_dynamic[blood_parameter] =  self.generate_dynamics(blood_parameter, normal_value = self.normal_values[blood_parameter], app_time = 0, max_day_after_symp = 3)
 
 
@@ -94,11 +79,11 @@ class Person:
 
     def generate_max_value(self, max_state):
         if max_state == 'symptomatic':
-            max_value = random.randint(10, 60)
+            max_value = np.random.uniform(10, 60)
         elif max_state == 'severe' or max_state == 'critical':
-            max_value = random.randint(60, 140)
+            max_value = np.random.uniform(60, 140)
         else:
-            max_value = random.randint(2, 10)
+            max_value = np.random.uniform(2, 10)
         return max_value
 
 
@@ -202,7 +187,7 @@ class BloodSim():
 
 
     def do_covasim(self):
-        sim = cv.Sim(variants = self.variant, n_days = self.end_day - self.start_day, pop_size = self.pop_size, rand_seed = self.random_seed, pop_infected=0)
+        sim = cv.Sim(variants = self.variant, n_days = self.end_day - self.start_day, pop_size = self.pop_size, rand_seed = self.random_seed, pop_infected=0, rescale=False)
         sim.run()
         print(sim)
         return sim
@@ -240,7 +225,6 @@ class BloodSim():
         self.time += 1
 
 
-    @profile
     def sim_run(self):
 
         if self.time == self.start_day:
@@ -404,20 +388,3 @@ def replace_zero_to_nan(df):
     df.insert(0, 'person_id', first_column)
     df.person_id = df.person_id.astype(str)
     return df
-
-
-def do_plot(df_dict):
-    ''' Построение графиков параметров крови по словарю датафреймов. '''
-
-    for key_word in df_dict.keys():
-        df = df_dict[key_word]
-        mean_values = df.iloc[:, 1:].mean()
-        plt.plot(mean_values, marker='o', label=key_word, alpha=0.5)
-
-    nbis_value = df.shape[1]
-    if nbis_value > 10:
-        nbis_value = 10
-
-    plt.gca().xaxis.set_major_locator(MaxNLocator(nbins=nbis_value))
-    plt.legend()
-    plt.show()
