@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="344.96024mm"
+   height="125.77777mm"
+   viewBox="0 0 344.96023 125.77777"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="graphical_abstract.svg"
+   xml:space="preserve"
+   inkscape:export-filename="graphical_abstract.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.78419644"
+     inkscape:cx="579.57417"
+     inkscape:cy="470.54536"
+     inkscape:window-width="2560"
+     inkscape:window-height="1418"
+     inkscape:window-x="142"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" /><defs
+     id="defs1"><marker
+       style="overflow:visible"
+       id="ConcaveTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid"><path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7" /></marker><marker
+       style="overflow:visible"
+       id="ConcaveTriangle-2"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid"><path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7-3" /></marker></defs><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(11.842247,-73.359192)"><rect
+       style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.11799;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8.64257, 8.64257;stroke-opacity:1"
+       id="rect1"
+       width="344.96024"
+       height="125.77777"
+       x="-11.842247"
+       y="73.359192" /><text
+       xml:space="preserve"
+       style="font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="273.82727"
+       y="173.02994"
+       id="text3-2-9"><tspan
+         sodipodi:role="line"
+         id="tspan3-3-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="273.82727"
+         y="173.02994">How quickly can method detect epidemic?</tspan></text><text
+       xml:space="preserve"
+       style="font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="272.45337"
+       y="182.62938"
+       id="text3-2-9-1"><tspan
+         sodipodi:role="line"
+         id="tspan3-3-2-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+         x="272.45337"
+         y="182.62938">How noisy are the results of the detector?</tspan></text><rect
+       style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2"
+       width="89.967339"
+       height="94.894562"
+       x="82.184837"
+       y="90.422424"
+       rx="0"
+       ry="2.9198318" /><g
+       id="g1"><g
+         id="g12"
+         transform="translate(5.3834321,-48.84653)"><g
+           id="g7"
+           transform="translate(-1.0144634,-7.2650498)"><rect
+             style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2-7"
+             width="74.273262"
+             height="15.694092"
+             x="81.180336"
+             y="221.59836"
+             rx="0"
+             ry="2.9198318" /><text
+             xml:space="preserve"
+             style="font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             x="118.1709"
+             y="230.92818"
+             id="text3"><tspan
+               sodipodi:role="line"
+               id="tspan3"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+               x="118.1709"
+               y="230.92818">Linear Exponential Detector</tspan></text></g><g
+           id="g11"
+           transform="translate(2.1898747,-14.599165)"><rect
+             style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2-7-7-8"
+             width="74.273262"
+             height="15.694092"
+             x="77.975998"
+             y="158.00424"
+             rx="0"
+             ry="2.9198318" /><text
+             xml:space="preserve"
+             style="font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             x="115.15397"
+             y="167.31476"
+             id="text3-2"><tspan
+               sodipodi:role="line"
+               id="tspan3-3"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+               x="115.15397"
+               y="167.31476">Anderson-Darling test</tspan></text></g><g
+           id="g10"
+           transform="translate(-2.1557292,-12.661831)"><rect
+             style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2-7-7-34"
+             width="74.273262"
+             height="15.694092"
+             x="82.321602"
+             y="173.79897"
+             rx="0"
+             ry="2.9198318" /><text
+             xml:space="preserve"
+             style="font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             x="119.32319"
+             y="183.13705"
+             id="text3-2-6"><tspan
+               sodipodi:role="line"
+               id="tspan3-3-8"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+               x="119.32319"
+               y="183.13705">Kolmogorov-Smirnov test</tspan></text></g><g
+           id="g9"
+           transform="translate(-5.2580471,-10.532129)"><rect
+             style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2-7-7-3"
+             width="74.273262"
+             height="15.694092"
+             x="85.42392"
+             y="189.40132"
+             rx="0"
+             ry="2.9198318" /><text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             x="122.4255"
+             y="198.73114"
+             id="text4"><tspan
+               sodipodi:role="line"
+               id="tspan4"
+               style="stroke-width:0.5"
+               x="122.4255"
+               y="198.73114">Mann-Whitney test</tspan></text></g><g
+           id="g8"
+           transform="translate(-1.0144634,-8.8030159)"><rect
+             style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             id="rect2-7-7"
+             width="74.273262"
+             height="15.694092"
+             x="81.180336"
+             y="205.40427"
+             rx="0"
+             ry="2.9198318" /><text
+             xml:space="preserve"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+             x="118.26185"
+             y="215.30458"
+             id="text5"><tspan
+               sodipodi:role="line"
+               id="tspan5"
+               style="stroke-width:0.5"
+               x="118.26185"
+               y="215.30458">Chow test</tspan></text></g></g><path
+         style="font-variation-settings:'opsz' 32;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 159.82257,163.44881 h 2.64733 V 94.558547 h -2.64733"
+         id="path12"
+         sodipodi:nodetypes="cccc" /><path
+         style="font-variation-settings:'opsz' 32;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         d="m 159.82257,181.18087 h 2.64733 v -15.69409 h -2.64733"
+         id="path12-7"
+         sodipodi:nodetypes="cccc" /><text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="-129.00919"
+         y="168.97156"
+         id="text12"
+         transform="rotate(-90)"><tspan
+           sodipodi:role="line"
+           id="tspan12"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+           x="-129.00919"
+           y="168.97156">Statistical tests</tspan></text><text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="-173.24287"
+         y="168.97156"
+         id="text12-1"
+         transform="rotate(-90)"><tspan
+           sodipodi:role="line"
+           id="tspan12-9"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-opacity:1"
+           x="-173.24287"
+           y="168.97156">AIC</tspan></text></g><text
+       xml:space="preserve"
+       style="font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
+       x="127.06654"
+       y="87.432884"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;stroke-width:0.5"
+         x="127.06654"
+         y="87.432884">Epidemic Detection Methods</tspan></text><g
+       id="g13"
+       transform="translate(0,6.0960678)"><g
+         id="g1-4"
+         transform="matrix(0.04835239,0,0,0.04835239,18.910681,87.402247)">
+	<path
+   class="st0"
+   d="M 387.55081,-0.65332284 H -56.417193 c -18.797,0 -34.016,15.23499984 -34.016,34.01599984 V 317.33168 c 0,18.781 15.219,34.016 34.016,34.016 H 129.56681 v 7.578 c 0,18.781 -15.219,34.016 -34.016003,34.016 h -49.984 v 40 h 73.188003 93.625 73.187 v -40 h -49.984 c -18.797,0 -34.016,-15.234 -34.016,-34.016 v -7.578 h 185.984 c 18.797,0 34.016,-15.234 34.016,-34.016 V 33.362677 c 0,-18.781 -15.219,-34.01599984 -34.016,-34.01599984 z M 373.56681,276.00268 c 0,6.266 -5.078,11.344 -11.344,11.344 H -31.089193 c -6.266,0 -11.344,-5.078 -11.344,-11.344 V 58.690677 c 0,-6.266 5.078,-11.344 11.344,-11.344 H 362.22381 c 6.266,0 11.344,5.078 11.344,11.344 V 276.00268 Z"
+   id="path1" />
+</g><g
+         style="fill:#000000"
+         id="g2"
+         transform="matrix(0.91585118,0,0,0.91585118,10.907177,146.95602)"><path
+           d="m 19.332,19.041 c 0,0 -1.664,2.125 -3.79,0 -2.062,-2 -3.562,0 -3.562,0 l -4.967,9.79 c -0.144,0.533 0.173,1.081 0.706,1.224 h 16.497 c 0.533,-0.143 0.85,-0.69 0.707,-1.224 z M 26.939,28.33 18.96,14.902 V 14.877 L 18.946,7.008 h 0.551 c 0.826,0 1.498,-0.671 1.498,-1.499 0,-0.827 -0.672,-1.498 -1.498,-1.498 h -7.995 c -0.827,0 -1.498,0.671 -1.498,1.498 0,0.828 0.671,1.499 1.498,1.499 h 0.482 L 11.968,14.879 5.06,28.33 C 4.632,29.929 5.581,31.572 7.179,32 H 24.82 c 1.6,-0.428 2.549,-2.071 2.119,-3.67 z M 24.553,30.998 7.445,30.979 C 6.38,30.693 5.748,29.597 6.033,28.533 L 12.98,14.917 13.001,6.009 h -1.498 c -0.275,0 -0.499,-0.224 -0.499,-0.5 0,-0.276 0.224,-0.499 0.499,-0.499 h 7.995 c 0.275,0 0.498,0.224 0.498,0.499 0,0.276 -0.223,0.5 -0.498,0.5 H 18 l 0.025,8.875 7.939,13.666 c 0.286,1.067 -0.347,2.163 -1.411,2.448 z M 16.48,2.512 c 0,0.552 0.448,1 1,1 0.552,0 1,-0.448 1,-1 0,-0.552 -0.447,-1 -1,-1 -0.553,0 -1,0.447 -1,1 z m 1,-2.5 c 0.828,0 1.5,-0.671 1.5,-1.5 0,-0.829 -0.672,-1.5 -1.5,-1.5 -0.828,0 -1.5,0.671 -1.5,1.5 0,0.829 0.672,1.5 1.5,1.5 z m -4,2.5 c 0.553,0 1,-0.448 1,-1 0,-0.552 -0.447,-1 -1,-1 -0.553,0 -1,0.448 -1,1 0,0.552 0.447,1 1,1 z"
+           id="path1-7" /></g><text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
+         x="25.526606"
+         y="183.52914"
+         id="text2"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="stroke-width:0.5"
+           x="25.526606"
+           y="183.52914">Lab Data</tspan></text><text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
+         x="26.882126"
+         y="84.650406"
+         id="text6"><tspan
+           sodipodi:role="line"
+           style="stroke-width:0.5"
+           x="26.882126"
+           y="84.650406"
+           id="tspan7">BloodSim simulation</tspan></text><path
+         style="font-variation-settings:'opsz' 32;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle)"
+         d="m 26.916256,108.33601 v 14.0708 h 51.756176"
+         id="path8"
+         sodipodi:nodetypes="ccc" /><path
+         style="font-variation-settings:'opsz' 32;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle-2)"
+         d="M 26.916256,144.21946 V 131.93187 H 78.672432"
+         id="path8-1"
+         sodipodi:nodetypes="ccc" /><text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="54.280174"
+         y="119.64768"
+         id="text8"><tspan
+           sodipodi:role="line"
+           id="tspan8"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+           x="54.280174"
+           y="119.64768">1000 random seeds</tspan></text><text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="54.280174"
+         y="138.56323"
+         id="text8-7"><tspan
+           sodipodi:role="line"
+           id="tspan8-6"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
+           x="54.280174"
+           y="138.56323">1000 permutations</tspan></text></g><g
+       style="fill:#000000"
+       id="g14"
+       transform="matrix(0.03548974,0,0,0.03548974,197.26428,167.23396)"><g
+         id="g2-6">
+	<path
+   d="M 256,0 C 114.609,0 0,114.609 0,256 0,397.391 114.609,512 256,512 397.391,512 512,397.391 512,256 512,114.609 397.391,0 256,0 Z m 0,472 C 136.703,472 40,375.297 40,256 40,136.703 136.703,40 256,40 c 119.297,0 216,96.703 216,216 0,119.297 -96.703,216 -216,216 z"
+   id="path1-8" />
+	<rect
+   x="240"
+   y="352"
+   width="32"
+   height="32"
+   id="rect1-5" />
+	<path
+   d="M 317.734,150.148 C 311.25,143.523 303.046,138.226 292.968,134.117 282.765,130.015 270.796,128 256.687,128 c -11.969,0 -22.875,2.016 -32.781,6.117 -9.938,4.109 -18.5,9.773 -25.688,17.125 -7.125,7.289 -12.672,14.508 -16.5,24.773 C 177.906,186.281 176,192 176,208 h 32.656 c 0,-16 4.234,-28.109 12.938,-38.516 8.594,-10.453 20.266,-14.82 35.094,-14.82 14.438,0 25.234,3.914 32.172,10.938 6.875,7.023 10.391,17.086 10.391,29.797 0,9.883 -3.25,18.758 -9.734,26.492 -6.375,7.75 -13.359,15.297 -20.844,22.438 -7.594,7.141 -13.672,14.766 -19.953,22.641 -6.281,7.875 -8.72,17.046 -8.72,27.499 V 320 h 32 v -13.75 c 0,-8.203 1.203,-15.312 4.406,-21.516 3.094,-6.219 6.953,-11.859 11.844,-16.891 4.734,-5.094 9.812,-10 15.469,-14.828 5.5,-4.766 10.781,-9.859 15.531,-15.172 4.844,-5.344 8.875,-11.344 11.938,-17.969 3.219,-6.625 4.828,-14.406 4.828,-23.477 0,-7.875 -1.422,-15.891 -4.391,-24.039 -2.906,-8.21 -7.594,-15.592 -13.891,-22.21 z"
+   id="path2" />
+</g></g><rect
+       style="font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="rect14"
+       width="91.977974"
+       height="50.201721"
+       x="211.39919"
+       y="95.476036" /><g
+       id="g1-1"
+       transform="matrix(0.03882724,0,0,0.03656471,253.47667,73.359183)">
+	<path
+   class="st0"
+   d="m 479.548,265.753 c -2.408,-6.276 -2.408,-13.224 0,-19.522 l 19.468,-51.108 c 4.6,-12.065 0.162,-25.666 -10.63,-32.714 l -45.797,-29.904 c -5.635,-3.682 -9.719,-9.317 -11.471,-15.801 L 416.822,63.905 C 413.456,51.462 401.862,43.04 388.994,43.681 l -54.636,2.732 c -6.715,0.324 -13.324,-1.814 -18.564,-6.036 L 273.2,6.073 c -10.035,-8.097 -24.361,-8.097 -34.404,0 l -42.594,34.304 c -5.241,4.222 -11.848,6.36 -18.572,6.036 l -54.629,-2.732 c -12.868,-0.64 -24.462,7.781 -27.827,20.224 l -14.288,52.799 c -1.76,6.484 -5.843,12.119 -11.478,15.801 L 23.61,162.408 c -10.791,7.048 -15.222,20.664 -10.629,32.714 l 19.476,51.116 c 2.401,6.291 2.401,13.238 0,19.521 l -19.476,51.116 c -4.593,12.042 -0.162,25.666 10.629,32.714 l 45.798,29.912 c 5.635,3.666 9.718,9.286 11.478,15.785 l 14.288,52.799 c 3.366,12.451 14.96,20.865 27.827,20.224 l 54.629,-2.717 c 6.724,-0.348 13.331,1.806 18.572,6.021 l 42.594,34.319 c 10.043,8.09 24.369,8.09 34.396,0 l 42.602,-34.319 c 5.234,-4.214 11.849,-6.368 18.564,-6.021 l 54.636,2.717 c 12.868,0.641 24.462,-7.773 27.828,-20.224 l 14.296,-52.799 c 1.752,-6.499 5.836,-12.119 11.471,-15.785 l 45.797,-29.912 c 10.792,-7.048 15.23,-20.672 10.622,-32.714 z m -190.77,103.374 c 0,10.451 -8.476,18.943 -18.927,18.943 h -27.704 c -10.452,0 -18.935,-8.492 -18.935,-18.943 v -28.916 c 0,-10.452 8.483,-18.943 18.935,-18.943 h 27.704 c 10.451,0 18.927,8.491 18.927,18.943 z m 0,-100.179 c 0,10.452 -8.476,18.928 -18.927,18.928 h -27.704 c -10.452,0 -18.935,-8.476 -18.935,-18.928 V 142.879 c 0,-10.467 8.483,-18.943 18.935,-18.943 h 27.704 c 10.451,0 18.927,8.476 18.927,18.943 z"
+   id="path1-1" />
+</g></g><style
+     type="text/css"
+     id="style1">
+<![CDATA[
+	.st0{fill:#000000;}
+]]>
+</style><style
+     type="text/css"
+     id="style1-4">
+	.st0{fill:#000000;}
+</style></svg>
