@@ -3,6 +3,7 @@ import numpy as np
 import glob
 import os
 import random
+import warnings
 import covasim as cv
 from scipy.ndimage.filters import gaussian_filter1d
 
@@ -39,7 +40,7 @@ class Person:
         self.personal_dynamic = {}
         for blood_parameter in self.blood_parameters.keys():
             self.normal_values[blood_parameter] = self.get_normal_value(blood_parameter)
-            self.personal_dynamic[blood_parameter] =  self.generate_dynamics(blood_parameter, normal_value = self.normal_values[blood_parameter], app_time = 0, max_day_after_symp = 3)
+            self.personal_dynamic[blood_parameter] =  self.generate_dynamics(normal_value = self.normal_values[blood_parameter])
 
 
     def get_normal_value(self, blood_parameter, threshold=False):
@@ -58,9 +59,9 @@ class Person:
 
 
     def _update_state(self, time):
-        index = self.change_state_dates.index(time) + 1
+        index = max(i for i, date in enumerate(self.change_state_dates) if date == time) + 1
         self.new_state_time = time
-        state = ['person_id', 'exposed', 'infectious', 'symptomatic', 'severe', 'critical', 'recovered', 'death'][index]  
+        state = ['person_id', 'exposed', 'infectious', 'symptomatic', 'severe', 'critical', 'recovered', 'dead'][index]  
         return state
 
 
@@ -70,81 +71,74 @@ class Person:
 
 
     def generate_max_state(self):
-        names = ['exposed',	'infectious', 'symptomatic', 'severe', 'critical', 'recovered']
-        max_value = np.nanmax(self.change_state_dates[:5])
-        max_index = np.where(self.change_state_dates[:5] == max_value)[0]
+        names = ['exposed',	'infectious', 'symptomatic', 'severe', 'critical', 'dead']
+        
+        dates = self.change_state_dates[:5] + self.change_state_dates[6:]
+        max_value = np.nanmax(dates)
+        max_index = np.where(dates == max_value)[0]
         i = max_index[-1] if max_index.size > 0 else None
         return names[i]
 
 
     def generate_max_value(self, max_state):
-        if max_state == 'symptomatic':
-            max_value = np.random.uniform(10, 60)
-        elif max_state == 'severe' or max_state == 'critical':
-            max_value = np.random.uniform(60, 140)
-        else:
-            max_value = np.random.uniform(2, 10)
-        return max_value
+        match max_state:
+            case "exposed":
+                median = 3
+            case "infectious":
+                median = 3
+            case "symptomatic":
+                median = 10
+            case "severe":
+                median = 50
+            case "critical":
+                median = 100
+            case "dead":
+                median = 150
 
+        return np.random.lognormal(np.log(median), 1)
+    
+    
+    def generate_dynamics(self, normal_value):
+        names = ['exposed',	'infectious', 'symptomatic', 'severe', 'critical', 'recovered', 'dead']
 
-    def generate_dynamics(self, blood_parameter, normal_value, app_time, max_day_after_symp):
-        
         dyn_str = []
+        
         if np.all(np.isnan(self.change_state_dates)):
-            for i in range(self.n_day):
-                dyn_str.append(normal_value)
-            return dyn_str
+            return np.array([normal_value] * self.n_day)
         
         max_state = self.generate_max_state()
-        max_value = normal_value + self.generate_max_value(max_state)
-        
-        for i in range(self.change_state_dates[1]):
-            dyn_str.append(normal_value)
-        
-        if max_state == 'critical' or max_state == 'severe' or max_state == 'symptomatic' or max_state == 'infectious':
-            for i in range(app_time):
-                dyn_str.append(normal_value)
+        max_value = self.generate_max_value(max_state)
+        peak_value = normal_value + max_value
 
-            if max_state != 'infectious':
-                
-                fast_growth_days = self.change_state_dates[2] + max_day_after_symp - len(dyn_str)
-                prob = list(np.linspace(normal_value, max_value, fast_growth_days))
-                dyn_str += prob
+        if max_state == 'exposed' or max_state == 'infectious':
+            return np.array([normal_value] * self.n_day)
 
-            if not np.isnan(self.change_state_dates[6]):
-                
-                dyn_str += list(np.linspace(max_value, max_value+30, self.change_state_dates[6]-len(dyn_str)))
-                for i in range(self.n_day-len(dyn_str)):
-                    dyn_str.append(np.nan)
-                if len(dyn_str) > self.n_day:
-                    dyn_str = dyn_str[:self.n_day]
-                    
-                return dyn_str
-                 
+        dyn_str += [normal_value] * self.change_state_dates[2]
 
-            second_change_days = (self.change_state_dates[5] - len(dyn_str))//2
-            
-            if max_state == 'symptomatic' or max_state == 'infectious':
-                
-                for i in range(second_change_days):
-                    dyn_str.append(max_value)
+        growth_days = self.change_state_dates[names.index(max_state)] + 1 - len(dyn_str) # !!!!!!!!!!!
+        growth_days = max(1, growth_days)
+        prob = np.linspace(normal_value, peak_value, growth_days).tolist()
+        dyn_str += prob
+
+        if max_state == 'dead':
+            dyn_str = gaussian_filter1d(dyn_str, sigma=2).tolist()
+            dyn_str += [np.nan] * (self.n_day - len(dyn_str))
+        else:
+            if np.isnan(self.change_state_dates[5]):
+                dyn_str += [peak_value] * (self.n_day - len(dyn_str))
             else:
-                
-                dyn_str += list(np.linspace(max_value, max_value+15, second_change_days))
-                
-                    
+                decrease_days = self.change_state_dates[5] + 2 - len(dyn_str)
+                decrease_days = max(1, decrease_days)
+                dyn_str += np.linspace(peak_value, normal_value, decrease_days).tolist()[1:]
+                dyn_str += [normal_value] * (self.n_day - len(dyn_str))
+            dyn_str = gaussian_filter1d(dyn_str, sigma=2)
 
-            dyn_str += list(np.linspace(dyn_str[-1], normal_value, second_change_days+1))    
-
-        for i in range(self.n_day-len(dyn_str)):
-            dyn_str.append(normal_value)
-
-        dyn_str = gaussian_filter1d(dyn_str, sigma=2)
         if len(dyn_str) > self.n_day:
             dyn_str = dyn_str[:self.n_day]
-        return dyn_str
+
+        return np.array(dyn_str)
     
-    
+
     def live_day(self, time):
 
         self.check_state(time)
@@ -166,7 +160,10 @@ class BloodSim():
 
     '''
 
-    def __init__(self, n_person_per_day, start_day=0, rand_seed=0, end_day=300, pop_size=10000, guest_strategy='random', variant=cv.variant('alpha', days=100, n_imports=30)):
+    def __init__(self, n_person_per_day, start_day=0, rand_seed=0, end_day=300, pop_size=10000, guest_strategy='random', variant=None):
+        if start_day != 0:
+            raise ValueError('BloodSim currently supports only start_day = 0')
+
         self.start_day = start_day
         self.end_day = end_day
         self.time = start_day
@@ -181,6 +178,8 @@ class BloodSim():
         self.labor_symp_dict = {}
         self.labor_for_random_dict = {}
         self.death_persons_dict = {}
+        if variant is None:
+            variant = cv.variant('alpha', days=100, n_imports=30)
         self.variant = variant
         self.random_seed = rand_seed
         self.sim = self.do_covasim()
@@ -201,6 +200,9 @@ class BloodSim():
             filename = os.path.split(file)[1]
             wo_ext = os.path.splitext(filename)[0]
             self.blood_parameters[wo_ext] = pd.read_excel(file)
+
+        if len(self.blood_parameters) == 0:
+            self.blood_parameters['crp'] = pd.DataFrame()
 
 
     def init_population(self):
@@ -230,7 +232,7 @@ class BloodSim():
         if self.time == self.start_day:
             self.init_population()
 
-        for day in range(self.end_day):
+        for day in range(self.start_day, self.end_day):
             self.update_time()
             self.labor_normal = []
             self.labor_symp = []
@@ -244,12 +246,12 @@ class BloodSim():
                     self.labor_symp.append(int(person.person_id))
                 elif person.state == 'severe' or person.state == "critical":
                     self.labor_crit_sev.append(int(person.person_id))
-                elif person.state == 'death':
+                elif person.state == 'dead':
                     self.death_persons.append(int(person.person_id))
                 else:
                     self.labor_normal.append(int(person.person_id))
                 
-                if person.state != 'death': 
+                if person.state != 'dead': 
                     self.labor_for_random.append(int(person.person_id))
 
             self.labor_normal_states_dict[day] = self.labor_normal
@@ -266,7 +268,6 @@ class BloodSim():
         '''
         напечатать имена параметров крови
         '''
-        self.preprocessing_blood_files()
         return list(self.blood_parameters.keys())
 
 
@@ -292,57 +293,21 @@ class BloodSim():
 
         if self.guest_strategy == 'random':
             self.add_random_id_list()
-        elif self.guest_strategy == 'symptomatic':
-            self.add_symp_id_list()
+        else:
+            raise ValueError("BloodSim currently supports only guest_strategy = 'random'")
 
         self.lab_memory = self.get_lab_results()
         return
 
 
-    def add_symp_id_list(self):
-        
-        self.n_person_per_day['people_ids'] = self.n_person_per_day.apply(self.generate_numbers_with_coef, axis=1)
-        
-        pass
-
-
-    def generate_numbers_with_coef(self, row):
-        
-        count = int(row['n_person'])
-        day = int(row['day'])
-        names = ['  crit_sev  ', '  symp  ', '  normal  ']
-        lists = [self.labor_crit_sev_dict[day], self.labor_symp_dict[day],
-                 self.labor_normal_states_dict[day]]
-        weights = [0.35, 0.34, 0.32]
-        result = []
-        people_group_count = self.get_people_group_count(lists, weights, count)
-
-        for group in range(3):
-            random_values = random.sample(lists[group], people_group_count[group])
-            result += random_values
-
-        return result
-
-
-    def get_people_group_count(self, lists, weights, count):
-
-        crit_count = int(count * weights[0])
-        if crit_count > len(lists[0]):
-            crit_count = len(lists[0])
-
-        symp_count = int(count * weights[1] / (weights[1] + weights[2]))
-        if symp_count > len(lists[1]):
-            symp_count = len(lists[1])
-
-        normal_count = count - symp_count - crit_count
-        result_list = [crit_count, symp_count, normal_count]
-
-        return result_list
-
-
     def generate_random_numbers(self, row):
         size = int(row['n_person'])
         day = int(row['day'])
+        if day not in self.labor_for_random_dict:
+            raise ValueError(f'Day {day} is outside simulated range')
+        if size > len(self.labor_for_random_dict[day]):
+            warnings.warn(f'Not enough people for random sample on day {day}: requested {size}, available {len(self.labor_for_random_dict[day])}')
+            size = len(self.labor_for_random_dict[day])
         self.to_see = random.sample(self.labor_for_random_dict[day], size)
         return self.to_see
 
@@ -359,9 +324,12 @@ class BloodSim():
         lab_results = {}
         for blood_parameter in self.pop_blood.keys():
             param_days_dict = {}
-            for day in range(self.end_day - self.start_day):
+            for day in range(self.start_day, self.end_day):
                 df = self.choose_df_parts(blood_parameter, day)
-                id_list = list(self.n_person_per_day.people_ids[self.n_person_per_day.day == day])[0]
+                day_people_ids = self.n_person_per_day.people_ids[self.n_person_per_day.day == day]
+                if len(day_people_ids) != 1:
+                    raise ValueError(f'Expected one people_ids row for day {day}, found {len(day_people_ids)}')
+                id_list = day_people_ids.iloc[0]
                 prom = df[df['person_id'].astype(int).isin(id_list)]
                 param_days_dict[day] = list(prom.iloc[:, 1])
             lab_results[blood_parameter] = param_days_dict
@@ -370,7 +338,9 @@ class BloodSim():
 
     def choose_df_parts(self, blood_parameter, day):
         df = self.pop_blood[blood_parameter]
-        matching_columns = [col for col in df.columns if col.split('_')[-1] == str(day)]
+        matching_columns = [f'day_{day}'] if f'day_{day}' in df.columns else []
+        if len(matching_columns) != 1:
+            raise KeyError(f'Expected one blood column for day {day}, found {len(matching_columns)}')
         first_column = df.iloc[:, 0]
         result_df = df[matching_columns]
         result_df.insert(0, 'person_id', first_column)
