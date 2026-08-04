@@ -1,6 +1,25 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from pathlib import Path
+
+
+def configure_plot_font(font_family="Inter"):
+    import matplotlib.pyplot as plt
+    from matplotlib import font_manager
+
+    font_dirs = [
+        Path.home() / "AppData/Local/Microsoft/Windows/Fonts",
+        Path("C:/Windows/Fonts"),
+    ]
+    for font_dir in font_dirs:
+        if not font_dir.exists():
+            continue
+        for pattern in (f"{font_family}*.ttf", f"{font_family}*.otf"):
+            for font_path in font_dir.glob(pattern):
+                font_manager.fontManager.addfont(str(font_path))
+
+    plt.rcParams["font.family"] = font_family
 
 
 def calculate_aic(n, rss, k):
@@ -18,13 +37,14 @@ def exponential_growth_model(x, a, b, c):
 
 
 if __name__ == "__main__":
+    configure_plot_font()
     np.random.seed(0)
     window_size = 28
 
     x = np.arange(window_size)
     y = np.exp(0.1 * (x+25)) + np.random.normal(0, 10, size=x.shape)
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5, 5))
     ax.plot(x, y, 'o', ms=5, color='black')
     ax.set_xlabel('Day', fontsize=16)
     ax.set_ylabel('CRP concentration [mg/L]', fontsize=16)
@@ -48,11 +68,12 @@ if __name__ == "__main__":
 
     print(aic_random, aic_linear, aic_exponential)
 
-    ax.plot(x, exponential_growth_model(x, *popt_exponential), '-', label=f'AIC = {aic_exponential:.0f}', color='#D55E00')
-    ax.plot(x, linear_growth_model(x, *popt_linear), '-', label=f'AIC = {aic_linear:.0f}', color='#F0E442')
-    ax.plot(x, np.ones_like(x)*random_noise_model(x, *popt_random), '-', label=f'AIC = {aic_random:.0f}', color='#009E73')
+    ax.plot(x, exponential_growth_model(x, *popt_exponential), '-', label=f'AIC = {aic_exponential:.0f}', color='#D55E00', linewidth=2)
+    ax.plot(x, linear_growth_model(x, *popt_linear), '-', label=f'AIC = {aic_linear:.0f}', color='#F0E442', linewidth=2)
+    ax.plot(x, np.ones_like(x)*random_noise_model(x, *popt_random), '-', label=f'AIC = {aic_random:.0f}', color='#009E73', linewidth=2)
 
     ax.legend(loc='upper center', fontsize=16, frameon=False)
     ax.set_xticks([])
     ax.set_yticks([])
-    fig.savefig('led_graph.png')
+    fig.savefig('led_graph.pdf')
+
