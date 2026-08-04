@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="344.96024mm"
+   width="331.65057mm"
    height="133.29758mm"
-   viewBox="0 0 344.96023 133.29758"
+   viewBox="0 0 331.65057 133.29758"
    version="1.1"
    id="svg1"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
@@ -27,15 +27,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="0.92784952"
-     inkscape:cx="857.89773"
-     inkscape:cy="173.51952"
-     inkscape:window-width="2560"
-     inkscape:window-height="1418"
-     inkscape:window-x="142"
-     inkscape:window-y="-6"
+     inkscape:zoom="0.65227431"
+     inkscape:cx="472.19397"
+     inkscape:cy="249.89486"
+     inkscape:window-width="1440"
+     inkscape:window-height="878"
+     inkscape:window-x="-6"
+     inkscape:window-y="1433"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" /><defs
+     inkscape:current-layer="g7" /><defs
      id="defs1"><marker
        style="overflow:visible"
        id="ConcaveTriangle"
@@ -367,12 +367,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(13.405563,-73.010147)"><rect
-       style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.18038;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8.89717, 8.89717;stroke-opacity:1"
+     transform="translate(12.83615,-73.010147)"><rect
+       style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1379;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:8.72384, 8.72384;stroke-opacity:1"
        id="rect1"
-       width="344.96024"
+       width="331.65057"
        height="133.29758"
-       x="-13.405563"
+       x="-12.83615"
        y="73.010147" /><g
        id="g94"
        transform="translate(3.2574165e-7,-1.5874974)"><g
@@ -407,7 +407,7 @@
                    id="tspan3"
                    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.64444px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5"
                    x="118.1709"
-                   y="230.92818">Linear Exponential Detector</tspan></text></g><g
+                   y="230.92818">Linear-Exponential Detector</tspan></text></g><g
                id="g11"
                transform="translate(2.1898747,-14.599165)"><rect
                  style="font-variation-settings:'opsz' 32;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
@@ -561,7 +561,7 @@
              style="stroke-width:0.5"
              x="26.882126"
              y="84.650406"
-             id="tspan7">BloodSim simulation</tspan></text><path
+             id="tspan7">BloodSim Simulation</tspan></text><path
            style="font-variation-settings:'opsz' 32;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle)"
            d="m 26.916256,108.33601 v 14.0708 h 51.756176"
            id="path8"
@@ -591,7 +591,7 @@
              x="54.280174"
              y="138.56323">1000 permutations</tspan></text></g><g
          id="g90"
-         transform="translate(0,1.5875)"><g
+         transform="translate(-12.170835,1.5875)"><g
            id="g92"
            transform="translate(0,4.7625002)"><g
              id="g91"
@@ -638,7 +638,7 @@
            id="path92"
            sodipodi:nodetypes="cc" /></g><g
          id="g89"
-         transform="translate(3.1238492,7.1305505)"><g
+         transform="translate(-9.0469848,7.1305505)"><g
            id="figure_1"
            transform="matrix(0.35277778,0,0,0.35277778,198.64338,86.856205)"><g
              id="axes_1"><g
@@ -1275,19 +1275,9 @@
                inkscape:label="patch_7"><path
                  d="M 45,25.92 H 324"
                  style="fill:none;stroke:#000000;stroke-width:1.41732;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none"
-                 id="path122" /></g></g></g><text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.6389px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-           x="277.68677"
-           y="93.207954"
-           id="text89"><tspan
-             sodipodi:role="line"
-             id="tspan89"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.6389px;font-family:Inter;-inkscape-font-specification:'Inter, @opsz=32';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;font-variation-settings:'opsz' 32;stroke-width:0.5"
-             x="277.68677"
-             y="93.207954">!</tspan></text></g><path
+                 id="path122" /></g></g></g></g><path
          style="font-variation-settings:'opsz' 32;fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle-2)"
-         d="m 172.65218,93.141174 h 94.20255 v 6.589569"
+         d="M 172.65218,93.141174 H 254.6839 V 99.93345"
          id="path89"
          sodipodi:nodetypes="ccc" /></g></g><style
      type="text/css"

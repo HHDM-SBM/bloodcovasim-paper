@@ -7,6 +7,7 @@
   node-stroke: black,
   node-corner-radius: 5pt,
 
+  node((0, -1), [Run Covasim\ simulation], name: <covasim>),
   node((0, 0), [Initialize\ BloodSim agents], name: <agents>),
   node((1, 0.5), [Select random\ alive agents], name: <strategy>),
   node((1, 1.5), [Aggregate\ lab tests], name: <labs>),
@@ -22,7 +23,7 @@
   
   node((0,1), align(top+center)[for each agent], stroke: none),
   node(enclose: ((0,1), (0,4.5)), inset: 10pt, name: <agentcycle>),
-  node((1,0), [for each day], stroke: none),
+  node((1,0), align(top+center)[for each day], stroke: none),
   node(enclose: ((1,0), (1,1.5)), inset: 10pt, name: <bloodsimcycle>),
   
   node((0, 5.5), name: <tmp1>),
@@ -30,7 +31,7 @@
   node((0.5, -1), name: <tmp3>),
   node((1, -1), name: <tmp4>),
 
-
+  edge(<covasim>, <agents>, "-|>"),
   edge(<agents>, <agentcycle>, "-|>"),
   edge(<strategy>, <labs>, "-|>"),
   edge(<stats>, <metrics>, "-|>"),
