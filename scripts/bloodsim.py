@@ -160,7 +160,7 @@ class BloodSim():
 
     '''
 
-    def __init__(self, n_person_per_day, start_day=0, rand_seed=0, end_day=300, pop_size=10000, guest_strategy='random', variant=None):
+    def __init__(self, n_person_per_day, start_day=0, rand_seed=0, end_day=300, pop_size=10000, guest_strategy='random', variant=None, use_waning=False):
         if start_day != 0:
             raise ValueError('BloodSim currently supports only start_day = 0')
 
@@ -182,11 +182,12 @@ class BloodSim():
             variant = cv.variant('alpha', days=100, n_imports=30)
         self.variant = variant
         self.random_seed = rand_seed
+        self.use_waning = use_waning
         self.sim = self.do_covasim()
 
 
     def do_covasim(self):
-        sim = cv.Sim(variants = self.variant, n_days = self.end_day - self.start_day, pop_size = self.pop_size, rand_seed = self.random_seed, pop_infected=0, rescale=False)
+        sim = cv.Sim(variants = self.variant, n_days = self.end_day - self.start_day, pop_size = self.pop_size, rand_seed = self.random_seed, pop_infected=0, rescale=False, use_waning=self.use_waning)
         sim.run()
         print(sim)
         return sim

@@ -16,10 +16,10 @@ def make_input_file(n_days = 300, n_dayperson = 250):
 
 def run_seed(args):
     i, n_dayperson = args
-    pop_size = int(1e6)
+    pop_size = int(1e5)
     n_days = 300
 
-    blood = BloodSim(n_person_per_day = make_input_file(n_days = n_days, n_dayperson = n_dayperson), end_day = n_days, pop_size = pop_size, guest_strategy = 'random', rand_seed = i)
+    blood = BloodSim(n_person_per_day = make_input_file(n_days = n_days, n_dayperson = n_dayperson), end_day = n_days, pop_size = pop_size, guest_strategy = 'random', rand_seed = i, use_waning = False)
     blood.sim_run()
 
     crp = pd.DataFrame(blood.lab_memory['crp']).melt(var_name='day', value_name='crp')
@@ -37,15 +37,15 @@ def run_seed(args):
 if __name__=='__main__':
     seeds = 1000
     workers = 25
-    n_dayperson = 1250
     
-    os.makedirs('synthetic_data', exist_ok=True)
+    os.makedirs('../synthetic_data', exist_ok=True)
 
-    with ProcessPoolExecutor(max_workers = workers) as executor:
-        results = list(executor.map(run_seed, [(i, n_dayperson) for i in range(seeds)]))
+    for n_dayperson in [10, 50, 250, 1250]:
+        with ProcessPoolExecutor(max_workers = workers) as executor:
+            results = list(executor.map(run_seed, [(i, n_dayperson) for i in range(seeds)]))
 
-    crp = pd.concat([x[0] for x in results], ignore_index=True)
-    new_infections = pd.concat([x[1] for x in results], ignore_index=True)
+        crp = pd.concat([x[0] for x in results], ignore_index=True)
+        new_infections = pd.concat([x[1] for x in results], ignore_index=True)
 
-    crp.to_csv(f'synthetic_data/crp_{n_dayperson}.csv', index=False)
-    new_infections.to_csv(f'synthetic_data/new_infections_{n_dayperson}.csv', index=False)
+        crp.to_csv(f'../synthetic_data/crp_{n_dayperson}.csv', index=False)
+        new_infections.to_csv(f'../synthetic_data/new_infections_{n_dayperson}.csv', index=False)
