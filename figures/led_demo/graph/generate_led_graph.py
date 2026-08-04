@@ -75,5 +75,5 @@ if __name__ == "__main__":
     ax.legend(loc='upper center', fontsize=16, frameon=False)
     ax.set_xticks([])
     ax.set_yticks([])
-    fig.savefig('led_graph.pdf')
+    fig.savefig('led_graph.svg', format='svg')
 
