@@ -22,10 +22,10 @@ class Person:
         self.normal_values = {}
         self.normal_pop_values = {
             'crp': {
-                'normal': [0, 1.5, 5], 
-                'obesity': [2.02, 0.28, 10], 
-                'derma': [2.65, 0.35, 25], 
-                'heart': [4.25, 1.25, 200],
+                'normal': [0, 1.5], 
+                'obesity': [2.02, 0.28], 
+                'derma': [2.65, 0.35], 
+                'heart': [4.25, 1.25],
             }
         }
         self.other_impact = ''
@@ -43,17 +43,13 @@ class Person:
             self.personal_dynamic[blood_parameter] =  self.generate_dynamics(normal_value = self.normal_values[blood_parameter])
 
 
-    def get_normal_value(self, blood_parameter, threshold=False):
+    def get_normal_value(self, blood_parameter):
         other_impact = np.random.choice(['normal', 'obesity', 'derma', 'heart'], 1, p = [0.7, 0.15, 0.1, 0.05])
         self.other_impact = other_impact[0]
 
-        while threshold != True:
-            normal_values = np.random.normal(self.normal_pop_values[blood_parameter][self.other_impact][0],
-                                             self.normal_pop_values[blood_parameter][self.other_impact][1], 1)
+        normal_values = np.random.normal(self.normal_pop_values[blood_parameter][self.other_impact][0], self.normal_pop_values[blood_parameter][self.other_impact][1], 1)
 
-            lognormal_value = np.exp(normal_values)[0]
-            if lognormal_value <= self.normal_pop_values[blood_parameter][self.other_impact][2]:
-                threshold = True
+        lognormal_value = np.exp(normal_values)[0]
 
         return lognormal_value
 
