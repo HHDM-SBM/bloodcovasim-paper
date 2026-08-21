@@ -20,15 +20,6 @@ class Person:
         self.state = 'sus'
         self.new_state_day = 0
         self.normal_values = {}
-        self.normal_pop_values = {
-            'crp': {
-                'normal': [0, 1.5], 
-                'obesity': [2.02, 0.28], 
-                'derma': [2.65, 0.35], 
-                'heart': [4.25, 1.25],
-            }
-        }
-        self.other_impact = ''
         c_1 = person_states
         self.change_state_dates = [int(x) if not np.isnan(x) else np.nan for x in c_1]
         self.init_person_blood()
@@ -39,19 +30,8 @@ class Person:
 
         self.personal_dynamic = {}
         for blood_parameter in self.blood_parameters.keys():
-            self.normal_values[blood_parameter] = self.get_normal_value(blood_parameter)
+            self.normal_values[blood_parameter] = np.random.lognormal(np.log(2), 0.5)
             self.personal_dynamic[blood_parameter] =  self.generate_dynamics(normal_value = self.normal_values[blood_parameter])
-
-
-    def get_normal_value(self, blood_parameter):
-        other_impact = np.random.choice(['normal', 'obesity', 'derma', 'heart'], 1, p = [0.7, 0.15, 0.1, 0.05])
-        self.other_impact = other_impact[0]
-
-        normal_values = np.random.normal(self.normal_pop_values[blood_parameter][self.other_impact][0], self.normal_pop_values[blood_parameter][self.other_impact][1], 1)
-
-        lognormal_value = np.exp(normal_values)[0]
-
-        return lognormal_value
 
 
     def _update_state(self, time):
@@ -79,19 +59,19 @@ class Person:
     def generate_max_value(self, max_state):
         match max_state:
             case "exposed":
-                median = 3
+                mean, std = np.log(2), 0.5
             case "infectious":
-                median = 3
+                mean, std = np.log(2), 0.5
             case "symptomatic":
-                median = 10
+                mean, std = np.log(12), 0.5
             case "severe":
-                median = 50
+                mean, std = np.log(50), 0.3
             case "critical":
-                median = 100
+                mean, std = np.log(150), 0.15
             case "dead":
-                median = 150
+                mean, std = np.log(250), 0.1
 
-        return np.random.lognormal(np.log(median), 1)
+        return np.random.lognormal(mean, std)
     
     
     def generate_dynamics(self, normal_value):
