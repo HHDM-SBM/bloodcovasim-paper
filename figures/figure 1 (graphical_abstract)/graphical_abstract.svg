@@ -27,9 +27,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="1.4801782"
-     inkscape:cx="443.86546"
-     inkscape:cy="337.12156"
+     inkscape:zoom="0.87015906"
+     inkscape:cx="642.98589"
+     inkscape:cy="440.14941"
      inkscape:window-width="2560"
      inkscape:window-height="1418"
      inkscape:window-x="131"
@@ -632,7 +632,7 @@
              style="stroke-width:0.5"
              x="26.882126"
              y="84.650406"
-             id="tspan7">BloodSim Simulation</tspan></text><path
+             id="tspan7">BloodCovasim</tspan></text><path
            style="font-variation-settings:'opsz' 32;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle)"
            d="m 26.916256,108.33601 v 14.0708 h 51.756176"
            id="path8"
