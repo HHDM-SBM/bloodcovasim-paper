@@ -65,4 +65,4 @@ positions = [
 for title, pos in zip(panel_titles, positions):
     draw.text(pos, title, fill='black', font=font, anchor='mm')
 
-result.save('Figure 5.png', dpi=(dpi, dpi))
+result.save('Figure 4.png', dpi=(dpi, dpi))
