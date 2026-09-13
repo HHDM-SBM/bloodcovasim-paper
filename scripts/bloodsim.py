@@ -13,7 +13,6 @@ class Person:
     ''' The Person class handles the individual dynamics of CRP concentration in the blood plasma of a specific person based on the progression of their disease as recorded in Covasim. '''
 
     def __init__(self, n_day, person_id, blood_parameters, person_states):
-        
         self.n_day = n_day
         self.person_id = str(person_id)
         self.blood_parameters = blood_parameters
@@ -26,11 +25,9 @@ class Person:
 
 
     def init_person_blood(self):
-        ''' Creating a dictionary of blood parameters for a specific individual '''
-
         self.personal_dynamic = {}
         for blood_parameter in self.blood_parameters.keys():
-            self.normal_values[blood_parameter] = np.random.lognormal(np.log(2), 0.5)
+            self.normal_values[blood_parameter] = np.random.lognormal(np.log(4), 0.8)
             self.personal_dynamic[blood_parameter] =  self.generate_dynamics(normal_value = self.normal_values[blood_parameter])
 
 
@@ -58,10 +55,6 @@ class Person:
 
     def generate_max_value(self, max_state):
         match max_state:
-            case "exposed":
-                mean, std = np.log(2), 0.5
-            case "infectious":
-                mean, std = np.log(2), 0.5
             case "symptomatic":
                 mean, std = np.log(12), 0.5
             case "severe":
@@ -83,15 +76,16 @@ class Person:
             return np.array([normal_value] * self.n_day)
         
         max_state = self.generate_max_state()
-        max_value = self.generate_max_value(max_state)
-        peak_value = normal_value + max_value
 
         if max_state == 'exposed' or max_state == 'infectious':
             return np.array([normal_value] * self.n_day)
 
+        max_value = self.generate_max_value(max_state)
+        peak_value = normal_value + max_value
+
         dyn_str += [normal_value] * self.change_state_dates[2]
 
-        growth_days = self.change_state_dates[names.index(max_state)] + 1 - len(dyn_str) # !!!!!!!!!!!
+        growth_days = self.change_state_dates[names.index(max_state)] + 1 - len(dyn_str)
         growth_days = max(1, growth_days)
         prob = np.linspace(normal_value, peak_value, growth_days).tolist()
         dyn_str += prob
@@ -116,7 +110,6 @@ class Person:
     
 
     def live_day(self, time):
-
         self.check_state(time)
         
         
@@ -124,17 +117,7 @@ class Person:
 
 
 class BloodSim():
-    '''
-    The BloodSim class handles the process of conducting blood tests in the population following a Covasim simulation.
-
-    Key methods:
-        sim_run(self): запуск симуляции. Если первый день - инициализация агентов и их параметров. Затем ежедневное обновление параметров агентов
-        init_population(self): создание массива агентов
-        check_parameters(self): вывести рассматриваемые параметры
-        do_df_pop_parameters(self): объединение динамики показателей крови всей популяции в словарь датафреймов (self.pop_blood)
-        preprocessing_blood_files(self): создание словаря со значениями динамики параметров крови при различных состояниях
-
-    '''
+    ''' The BloodSim class handles the process of conducting blood tests in the population following a Covasim simulation. '''
 
     def __init__(self, n_person_per_day, start_day=0, rand_seed=0, end_day=300, pop_size=10000, guest_strategy='random', variant=None, use_waning=False):
         if start_day != 0:
@@ -170,8 +153,6 @@ class BloodSim():
 
 
     def preprocessing_blood_files(self):
-        ''' Создание словаря со значениями динамики параметров крови '''
-
         self.blood_parameters = {}
         for file in glob.glob(r'blood/*.xlsx'):
             filename = os.path.split(file)[1]
@@ -183,7 +164,6 @@ class BloodSim():
 
 
     def init_population(self):
-        ''' Инициализация агентов '''
         recovered = self.sim.people.date_recovered
         exposed = self.sim.people.date_exposed
         death = self.sim.people.date_dead
@@ -205,7 +185,6 @@ class BloodSim():
 
 
     def sim_run(self):
-
         if self.time == self.start_day:
             self.init_population()
 
@@ -242,9 +221,6 @@ class BloodSim():
 
 
     def check_parameters(self):
-        '''
-        напечатать имена параметров крови
-        '''
         return list(self.blood_parameters.keys())
 
 
@@ -266,8 +242,6 @@ class BloodSim():
 
 
     def do_guests(self):
-        ''' Выбор стратегии тестирования и создание списка посещающих '''
-
         if self.guest_strategy == 'random':
             self.add_random_id_list()
         else:
@@ -290,14 +264,10 @@ class BloodSim():
 
 
     def add_random_id_list(self):
-        ''' добавление в таблицу посетителей айдишники посетивших на каждый день '''
-
         self.n_person_per_day['people_ids'] = self.n_person_per_day.apply(self.generate_random_numbers, axis=1)
 
 
     def get_lab_results(self):
-        ''' получение результатов лабораторной диагностики посетителей клиники '''
-        
         lab_results = {}
         for blood_parameter in self.pop_blood.keys():
             param_days_dict = {}
@@ -325,8 +295,6 @@ class BloodSim():
 
 
 def replace_zero_to_nan(df):
-    ''' Строки, где все ячейки (кроме id) принимают значение 0 или nan - заменить на nan '''
-
     first_column = df.iloc[:, 0]
     df = df.iloc[:, 1:]
     mask = (df == 0) | (df.isna())
