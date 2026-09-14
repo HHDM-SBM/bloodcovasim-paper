@@ -138,7 +138,7 @@ class BloodSim():
         self.labor_for_random_dict = {}
         self.death_persons_dict = {}
         if variant is None:
-            variant = cv.variant('alpha', days=100, n_imports=30)
+            variant = cv.variant('wild', days=100, n_imports=30)
         self.variant = variant
         self.random_seed = rand_seed
         self.use_waning = use_waning
