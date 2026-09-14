@@ -1,0 +1,6 @@
+test,peak_detection_rate_tp,peak_tp_to_tn_ratio,days_to_50pct_detection
+ad,0.161,4.351351351351352,
+chow,0.727,1.6636155606407321,34.094594594583334
+ks,0.131,4.09375,
+led,0.87,2.0,28.35
+mwu,0.164,4.96969696969697,
